@@ -1,0 +1,91 @@
+<div class="flowchart" style="background-image:url('public/plugins/grafana-processline-panel/img/plant.png');height: 700px; background-repeat: no-repeat;background-size: 60% 60%;
+background-position-x: 230px;
+background-position-y: 100px;"
+     mouse-capture
+     ng-keydown="ctrl.keyDown($event)"
+     ng-keyup="ctrl.keyUp($event)"
+><style>
+.modal-class {
+    display: none;
+    width: 500px;
+    height: 400px;
+}
+.modal-content-show {
+    background-color: #484444;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 500px;
+    height:400px
+}
+
+.close {
+    color: red;
+    margin-top: -20px;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+    <div style="margin-left: 1210px;margin-top: -10px;">
+        <a ng-click=" ctrl.sharePanelDefalut()" id="myBtn" style="text-align-last: right;color: #ffc03c">more</a>
+    </div>
+
+
+
+    <!-- The Modal -->
+
+
+
+
+
+
+
+    <div  class="node" ng-repeat="nodes in ctrl.panel.chartDataModel.nodes" ng-draggable='dragOptions' chart='nodes'
+         style="position: absolute;width: {{nodes.width}};top: {{nodes.y}}px;left: {{nodes.x}}px;">
+
+        <svg width="200" height="180" >
+
+
+
+
+
+            <rect id="glow" x="10" y="10" rx="5" ry="5" ng-attr-width="{{nodes.width || 80}}" height="90" fill={{ctrl.panel.bgcolor}} stroke={{nodes.stroke}} style="stroke-width:2;opacity:1">
+            </rect>
+                <circle cx="10" cy="100" r="6" stroke={{nodes.stroke}} stroke-width="1" fill={{nodes.stroke}} />
+            <line x1="15" y1="35" x2="{{nodes.width}}" y2="35" style="stroke: #060606;stroke-width: 2;opacity: 0.8;" />
+            <a xlink:href="{{nodes.url}}">
+
+                <text x="65" y="93" style="fill:green;font-family: arial, sans-serif;font-size:10px">more</text>
+            </a>
+            <g
+                    ng-repeat="node in nodes.Data" >
+            <text x="25" y="28" style="fill:#381f1f;opacity: 0.9;font-family: arial, sans-serif;"> {{node.Name}}
+            </text>
+
+                <text x="50" y="60" text-anchor="middle" style="fill: #381f1f;opacity: 1;font-family: arial, sans-serif; "> {{node.valueFormated}}
+
+                </text>
+
+
+
+
+
+                </g>
+
+        </svg>
+
+    </div>
+
+
+
+
+
+</div>

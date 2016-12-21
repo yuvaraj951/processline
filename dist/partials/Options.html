@@ -1,0 +1,85 @@
+<div class="editor-row">
+    <div class="section tight-form-container" style="margin-bottom: 20px">
+        <div class="tight-form">
+            <ul class="tight-form-list">
+                <li class="tight-form-item" style="width: 80px">
+                    <strong>Big value</strong>
+                </li>
+                <li class="tight-form-item">
+                    Prefix
+                </li>
+                <li>
+                    <input type="text" class="input-small tight-form-input"
+                           ng-model="ctrl.panel.prefix" ng-change="ctrl.render()" ng-model-onblur>
+                </li>
+                <li class="tight-form-item">
+                    Value
+                </li>
+                <li>
+                    <select class="input-small tight-form-input"
+                            ng-model="ctrl.panel.valueName"
+                            ng-options="f for f in ctrl.panel.valueNameOptions"
+                            ng-change="ctrl.render()"></select>
+                </li>
+                <li class="tight-form-item">
+                    Postfix
+                </li>
+                <li>
+                    <input type="text" class="input-small tight-form-input last"
+                           ng-model="ctrl.panel.postfix" ng-change="ctrl.render()" ng-model-onblur>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="tight-form">
+            <ul class="tight-form-list">
+                <li class="tight-form-item" style="width: 80px">
+                    <strong>Font size</strong>
+                </li>
+                <li class="tight-form-item">
+                    Prefix
+                </li>
+                <li>
+                    <select class="input-small tight-form-input" ng-model="ctrl.panel.prefixFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()"></select>
+                </li>
+                <li class="tight-form-item">
+                    Value
+                </li>
+                <li>
+                    <select class="input-small tight-form-input" ng-model="ctrl.panel.valueFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()"></select>
+                </li>
+                <li class="tight-form-item">
+                    Postfix
+                </li>
+                <li>
+                    <select class="input-small tight-form-input last" ng-model="ctrl.panel.postfixFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()"></select>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="tight-form">
+            <ul class="tight-form-list">
+                <li class="tight-form-item" style="width: 80px">
+                    <strong>Unit</strong>
+                </li>
+                <li class="dropdown" style="width: 266px;"
+                    ng-model="ctrl.panel.format"
+                    dropdown-typeahead="ctrl.unitFormats"
+                    dropdown-typeahead-on-select="ctrl.setUnitFormat($subItem)">
+                </li>
+                <li class="tight-form-item">
+                    Decimals
+                </li>
+                <li>
+                    <input type="number" class="input-small tight-form-input last" placeholder="auto" bs-tooltip="'Override automatic decimal precision for legend and tooltips'" data-placement="right"
+                           ng-model="ctrl.panel.decimals" ng-change="ctrl.render()" ng-model-onblur>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+
+

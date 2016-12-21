@@ -1,0 +1,21 @@
+{
+  "type": "panel",
+  "name": "Process Line",
+  "id": "grafana-processline-panel",
+
+  "info": {
+    "description": "Process Line panel for grafana",
+    "author": {
+      "name": "Gimco",
+      "url": "http://it.gogimco.com/"
+    },
+    "keywords": ["processline", "panel","chart"],
+      "version": "1.0.0",
+    "updated": "2016-11-19"
+  },
+
+  "dependencies": {
+
+    "plugins": [ ]
+  }
+}

@@ -1,0 +1,105 @@
+<div class="gf-form-group">
+    <h5>Process Selection</h5>
+    <select class="gf-form-input gf-size-auto" ng-model="name" ng-options="r.name for r in ctrl.panel.chartDataModel.nodes" ng-change="ctrl.UpdateNodeMetrics(name.name)"></select>
+
+
+
+    <div class="gf-form-group">
+        <h5 >Adding the Process </h5>
+
+        <div class="gf-form">
+            <div>
+             <button type="button" class="btn btn-success" ng-click="ctrl.addNewNode()">Add New Node</button> <br>
+
+
+
+                <br><h5 >Delete the Process </h5>
+
+                <button type="button" class="btn btn-success" ng-click="ctrl.DeleteNode(ctrl.metricsNodeName)">Delete Selected </button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+<div *ngIf="ctrl.process.name==ctrl.metricsNodeName" class="gf-form-group">
+    <h5>Threshold Options</h5>
+    <div class="gf-form">
+        <label class="gf-form-label width-10">Thresholds
+            <tip>Define threshold values to map the colors</tip>
+        </label>
+
+        <input
+                type="text" class="input-small gf-form-input width-10" id="thresold"
+                ng-model="ctrl.process.thresholds" ng-change="ctrl.updateThresholds(ctrl.metricsNodeName)"
+                placeholder="0,10,20,30" ng-model-onblur />
+    </div>
+    <div class="gf-form">
+        <label class="gf-form-label width-10">States
+            <tip>Define status of the process according thresold value</tip>
+        </label>
+
+        <input
+                type="text" class="input-small gf-form-input width-20" id="stages"
+                ng-model="ctrl.process.stages" ng-change="ctrl.updateStatus(ctrl.metricsNodeName)"
+                placeholder="initial,ready,running.." ng-model-onblur />
+    </div>
+    <div class="gf-form">
+        <label class="gf-form-label width-10">Colors</label>
+        <div class="gf-form-inline"  ng-repeat="color in ctrl.process.colors track by $index">
+            <label class="gf-form-label">
+                <a ng-click="ctrl.removeColor($index,ctrl.metricsNodeName)"><i class="pointer fa fa-remove">&nbsp;</i></a>
+                <spectrum-picker ng-model="color" ng-change="ctrl.changeColor($index, color,ctrl.metricsNodeName)" ng-model-onblur></spectrum-picker>
+            </label>
+        </div>
+        <span class="gf-form-label">
+	        <a  ng-click="ctrl.addColor(ctrl.process.name)">
+	          <i class="fa fa-plus"></i>&nbsp;
+	        </a>
+    	</span>
+        <span class="gf-form-label">
+	        <a  ng-click="ctrl.invertColorOrder(ctrl.metricsNodeName)">
+	          Invert
+	        </a>
+    	</span>
+        <span>
+
+    	</span>
+    </div>
+
+</div>
+
+    <div *ngIf="ctrl.process.name==ctrl.metricsNodeName" class="gf-form-group">
+
+        <h5>Process Node Changes</h5>
+    <div class="gf-form">
+
+     <label class="gf-form-label width-10">Width
+        <tip>Width of the node</tip>
+    </label>
+    <input
+            type="text" class="input-small gf-form-input width-10"
+            ng-model="ctrl.process.width" ng-change="ctrl.updateWidth(ctrl.metricsNodeName,ctrl.process.width)"
+            placeholder="0px" ng-model-onblur />
+</div>
+<div class="gf-form">
+    <label class="gf-form-label width-10">Background</label>
+      <label class="gf-form-label">
+               <spectrum-picker ng-model="ctrl.panel.bgcolor" ng-change="ctrl.changeBgColor(ctrl.panel.bgcolor)" ng-model-onblur></spectrum-picker>
+        </label>
+ </div>
+<div class="gf-form">
+    <label class="gf-form-label width-10">AddUrl
+        <tip>paste the url of another dashboard</tip>
+    </label>
+    <input
+            type="text" class="input-small gf-form-input width-20"
+            ng-model="ctrl.process.url" ng-change="ctrl.addUrl(ctrl.metricsNodeName,ctrl.process.url)"
+            placeholder="http://.." ng-model-onblur />
+</div>
+
+
+</div>
+
+</div>
