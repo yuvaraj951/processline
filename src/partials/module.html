@@ -49,10 +49,10 @@ background-position-y: 100px;"
 
 
 
-    <div ng-repeat="nodes in ctrl.panel.chartDataModel.nodes" ng-draggable='dragOptions' chart='nodes'
-         style="position: absolute;width: {{nodes.width}};top: {{nodes.y}}px;left: {{nodes.x}}px;">
-        <process-line chart="nodes" color="ctrl.panel.bgcolor"></process-line>
+ <div ng-repeat="nodes in ctrl.panel.chartDataModel.nodes" ng-draggable='dragOptions' chart='nodes'
+      style="position: absolute;width: {{nodes.width}};top: {{nodes.y}}px;left: {{nodes.x}}px;">
+    <process-line chart="nodes" color="ctrl.panel.bgcolor"></process-line>
 
-    </div>
+ </div>
 
 </div>

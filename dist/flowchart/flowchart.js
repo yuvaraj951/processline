@@ -74,7 +74,7 @@ System.register([], function (_export, _context) {
       x() {
       	return this._x;
       };
-      		//
+      	//
       // Y coordinate of the connector.
       //
       y() {

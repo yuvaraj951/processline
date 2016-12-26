@@ -9,10 +9,11 @@ angular.module('grafana.directives').directive('processLine', function(){
 
 return {
          restrict:'E',
-        templateUrl:'public/plugins/grafana-processline-panel/node.html',
+        templateUrl:'public/plugins/grafana-processline-panel/partials/node.html',
         //replace: true,
           	scope: {
           		chart: "=chart",
+          		color:"=color"
           	},
 
          	//

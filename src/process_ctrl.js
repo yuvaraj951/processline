@@ -12,7 +12,7 @@ import {MetricsPanelCtrl, alertTab} from 'app/plugins/sdk';
 import {QueryCtrl} from 'app/features/panel/query_ctrl';
 import {ChartViewModel} from './flowchart/ChartViewModel';
 import moment from 'moment';
-import './mydirective'
+import  './mydirective';
 import  './drag_drop';
 import './node-directive'
 //import {top,left} from './drag_drop';
@@ -50,8 +50,8 @@ export class ProcessLineCtrl extends MetricsPanelCtrl {
     this.CompanyName = "Process Line Montoring";
 
     this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
-    this.events.on('refresh', this.onRender.bind(this));
-    this.events.on('render', this.onRender.bind(this));
+    //this.events.on('refresh', this.onRender.bind(this));
+    this.events.on('render', this.render.bind(this));
     this.publishAppEvent('panel-initialized', {scope: this.$scope});
     //this.events.on('init-edit-mode', this.updateClock.bind(this));
     this.chartModel=new ChartViewModel(this.panel.chartDataModel)
@@ -232,7 +232,7 @@ publishAppEvent(evtName, evt) {
         this.data=data;
          console.log(this.data);
          this.updateNode(this.data);
-         this.render();
+         this.render(this.data);
      }
 
      seriesHandler(seriesData) {
@@ -311,7 +311,7 @@ publishAppEvent(evtName, evt) {
                    console.log(dataValues[0]);
                   console.log(dataValues);
 
-               var SingleProcess=this.panel.chartDataModel.nodes;
+               var SingleProcess=this.chartModel.data.nodes;
 
                for(var EachProcess of SingleProcess){
 
@@ -346,8 +346,10 @@ publishAppEvent(evtName, evt) {
         }
 
 
-    render(){
-                  this.data;
+    render(data){
+
+               this.updateNode(data);
+              // this.chartModel=new ChartViewModel(this.panel.chartDataModel);
              	for(var e of this.panel.chartDataModel.nodes) {
                      var threshold=e.thresholds;
                      var values=threshold.split(",");
