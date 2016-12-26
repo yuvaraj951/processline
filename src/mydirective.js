@@ -8,7 +8,7 @@ angular.module('grafana.directives').directive('processLine', function(){
 
 
 return {
-         restrict:'A',
+         restrict:'E',
         templateUrl:'public/plugins/grafana-processline-panel/node.html',
         //replace: true,
           	scope: {

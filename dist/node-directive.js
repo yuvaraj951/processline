@@ -27,7 +27,7 @@ System.register(['angular', 'lodash', 'app/core/utils/kbn', 'jquery'], function 
         function createExternalLinkMenu(ctrl) {
         var template = '<div class="node-menu small">';
         template += '<div class="node-menu-row">';
-         if (ctrl.panel.links) {
+          if (ctrl.panel.links) {
           _.each(ctrl.panel.links, function(link) {
             var info = linkSrv.getPanelLinkAnchorInfo(link, ctrl.panel.scopedVars);
             template += '<a class="panel-menu-link" href="' + info.href + '" target="' + info.target + '">' + info.title + '</a>';

@@ -12,7 +12,7 @@ import {MetricsPanelCtrl, alertTab} from 'app/plugins/sdk';
 import {QueryCtrl} from 'app/features/panel/query_ctrl';
 import {ChartViewModel} from './flowchart/ChartViewModel';
 import moment from 'moment';
-
+import './mydirective'
 import  './drag_drop';
 import './node-directive'
 //import {top,left} from './drag_drop';
