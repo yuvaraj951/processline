@@ -50,8 +50,8 @@ export class ProcessLineCtrl extends MetricsPanelCtrl {
     this.CompanyName = "Process Line Montoring";
 
     this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
-    //this.events.on('refresh', this.onRender.bind(this));
-    this.events.on('render', this.render.bind(this));
+    this.events.on('refresh', this.onRender.bind(this));
+    this.events.on('render', this.onRender.bind(this));
     this.publishAppEvent('panel-initialized', {scope: this.$scope});
     //this.events.on('init-edit-mode', this.updateClock.bind(this));
     this.chartModel=new ChartViewModel(this.panel.chartDataModel)
