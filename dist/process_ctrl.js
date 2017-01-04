@@ -117,8 +117,8 @@ System.register(['angular', 'lodash', 'jquery', 'app/core/profiler', 'app/core/c
           _this2.CompanyName = "Process Line Montoring";
 
           _this2.events.on('init-edit-mode', _this2.onInitEditMode.bind(_this2));
-          //this.events.on('refresh', this.onRender.bind(this));
-          _this2.events.on('render', _this2.render.bind(_this2));
+          _this2.events.on('refresh', _this2.onRender.bind(_this2));
+          _this2.events.on('render', _this2.onRender.bind(_this2));
           _this2.publishAppEvent('panel-initialized', { scope: _this2.$scope });
           //this.events.on('init-edit-mode', this.updateClock.bind(this));
           _this2.chartModel = new ChartViewModel(_this2.panel.chartDataModel);
@@ -459,7 +459,7 @@ System.register(['angular', 'lodash', 'jquery', 'app/core/profiler', 'app/core/c
           value: function render(data) {
 
             this.updateNode(data);
-            this.chartModel = new ChartViewModel(this.panel.chartDataModel);
+            // this.chartModel=new ChartViewModel(this.panel.chartDataModel);
             var _iteratorNormalCompletion3 = true;
             var _didIteratorError3 = false;
             var _iteratorError3 = undefined;

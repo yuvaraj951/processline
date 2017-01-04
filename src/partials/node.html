@@ -1,13 +1,35 @@
+<style>
+  .rectangle {
+  stroke-width:2;
+  opacity:1
+  }
+  .rectangle:hover{
+  opacity:1;
+
+  }
+</style>
 <svg width="200" height="180" >
 
 
 
 
+  <rect class="rectangle"id="glow" x="10" y="10" rx="5" ry="5" ng-attr-width="{{chart.width || 80}}" height="90" fill="{{color}}" stroke={{chart.stroke}} style=""
+        onmouseover="this.style.stroke = '{{chart.stroke}}'; this.style['stroke-width'] = 4;"
+        onmouseout="this.style.stroke = '{{chart.stroke}}'; this.style['stroke-width'] = 2;"
+        transform="skewY(2)"
+  ></rect>
 
-  <rect id="glow" x="10" y="10" rx="5" ry="5" ng-attr-width="{{chart.width || 80}}" height="90" fill="{{color}}" stroke={{chart.stroke}} style="stroke-width:2;opacity:1">
-  </rect>
   <circle cx="10" cy="100" r="6" stroke={{chart.stroke}} stroke-width="1" fill={{chart.stroke}} />
-  <line x1="15" y1="35" x2="{{chart.width}}" y2="35" style="stroke: #060606;stroke-width: 2;opacity: 0.8;" />
+  <line x1="15" y1="35" x2="{{chart.width}}" y2="35"  fill="{{chart.stroke}}" style="stroke: #060606;stroke-width: 2;opacity: 0.8;" >
+    <animateTransform attributeName="transform"
+                      type="scale"
+                      from="0.7 1" to="1 1"
+                      begin="0s" dur="5s"
+                      fill="red"
+                      repeatCount="indefinite"
+    />
+
+  </line>
   <a xlink:href="{{chart.url}}">
 
     <text x="65" y="93" style="fill:green;font-family: arial, sans-serif;font-size:10px">more</text>
